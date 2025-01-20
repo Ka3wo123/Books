@@ -1,0 +1,35 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: postgres
+      preConditions:
+        - onFail: MARK_RAN
+          not:
+            tableExists:
+              tableName: book
+      changes:
+        - createTable:
+            tableName: book
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: page_count
+                  type: INT
+                  constraints:
+                    nullable: true
+              - column:
+                  name: author_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
