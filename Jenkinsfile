@@ -7,12 +7,6 @@ pipeline {
     }
 
     stages {
-        stage('Checkout') {
-            steps {
-                git 'https://github.com/Ka3wo123/Books.git'
-            }
-        }
-
         stage('Build') {
             steps {
                 script {
