@@ -1,9 +1,11 @@
 pipeline {
-    agent any
-
-    environment {
-        JAVA_HOME = '/usr/lib/jvm/java-17-openjdk'
-        MAVEN_HOME = '/opt/maven'
+    agent {
+        node {
+            label 'docker-alpine'
+        }
+    }
+    triggers {
+        poolSCM '*/1 * * * *'
     }
 
     stages {
@@ -21,18 +23,6 @@ pipeline {
                     sh './gradlew test'
                 }
             }
-        }
-    }
-
-    post {
-        always {
-            echo 'Pipeline completed'
-        }
-        success {
-            echo 'Build and deployment successful'
-        }
-        failure {
-            echo 'Build or deployment failed'
         }
     }
 }
