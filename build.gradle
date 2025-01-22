@@ -48,7 +48,7 @@ liquibase {
     activities {
         main {
             changelogFile 'src/main/resources/db/changelog/db.changelog-master.yaml'
-            url 'jdbc:postgresql://db.sqhxnyvtoetwzhwonvok.supabase.co:5432/postgres?sslmode=require'
+            url 'jdbc:postgresql://localhost:5432/booksdb'
             username 'postgres'
             password 'password'
         }

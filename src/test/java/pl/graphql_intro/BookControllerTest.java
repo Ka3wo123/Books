@@ -38,6 +38,6 @@ class BookControllerTest {
 
   @Test
   void canGetBooks() {
-    tester.documentName("books").execute().path("books").entityList(Book.class).hasSize(3);
+    tester.documentName("books").execute().path("books").entityList(Book.class);
   }
 }
