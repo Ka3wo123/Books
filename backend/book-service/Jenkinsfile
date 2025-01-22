@@ -9,6 +9,11 @@ pipeline {
     }
 
     stages {
+        stage('Verify Directory') {
+            steps {
+                sh 'pwd && ls -l'
+            }
+        }
         stage('Build') {
             steps {
                 script {
