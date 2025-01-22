@@ -9,6 +9,8 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=password
       - POSTGRES_DB=booksdb
+    networks:
+      - jenkins
   jenkins:
     image: jenkins/jenkins:lts
     privileged: true
@@ -20,12 +22,9 @@ services:
     volumes:
       - ./jenkins_compose/jenkins_conf:/var/jenkins_home
       - /var/run/docker.sock:/var/run/docker.sock
-  agent:
-    image: jenkins/ssh-agent:latest-jdk17
-    privileged: true
-    user: root
-    container_name: jenkins_agent
-    expose:
-      - 22
-    environment:
-      - JENKINS_AGENT_SSH_PUBKEY=ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCvsRRFzbZqVzqroNzelqEMJNcDr05EwE1VMXvdxZjfV/AL5subIdZWeBy+qkCaHBWoz/67iESdrR8M/R9MadjrheYixGu+HSM9sjSm/N3xvLr5bgXWoUvFm1rMsMBFIrdYwnQgqciyD7OQNugQ+C2MBNqE8ZNBX4lGySlBo5KkRnfsFafPnSKlJua6R5Hns7gDOjD3dUXSfRl32qNzn5Ue892UKVC6MGmev84q1IVcHMfvDtKZ4+eH0FtYCAFuaiZRkKOzARss2MSnkU4zr6DXTGQW2QfyjoyMiuslGWviqtUQxOBxpzgQZLHroWPUsdnaUBkYhh30LiGfFFm+pGHL2cm00cm5Ks16cVkw7R6SU9pS29MnORIes9WC5lK/SaRB/TOYZVafOuDivdvKxuMXJUF5RjnQOvb11JjjdTqBwwPh0caZD1IfEenqQpcKsmbreyzN2SBuzF6eYrCWI1LhSpFZSnesMJCrUE1P7xyIP2PdHyZ12V2RduVcj0mwDyE= ka3wo@archbtw
+    networks:
+      - jenkins
+
+networks:
+  jenkins:
+    external: true
