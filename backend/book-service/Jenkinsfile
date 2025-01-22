@@ -8,6 +8,7 @@ pipeline {
         pollSCM '*/1 * * * *'
     }
 
+    dir('backend/book-service') {}
     stages {
         stage('Build') {
             steps {
@@ -26,5 +27,5 @@ pipeline {
             }
         }
     }
-  dir('backend/book-service') {}
+
 }
