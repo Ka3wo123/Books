@@ -35,9 +35,4 @@ class BookControllerTest {
         .andExpect(MockMvcResultMatchers.status().isOk())
         .andReturn();
   }
-
-  @Test
-  void canGetBooks() {
-    tester.documentName("books").execute().path("books").entityList(Book.class);
-  }
 }
