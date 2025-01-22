@@ -9,15 +9,12 @@ pipeline {
     }
 
     stages {
-        stage('Verify Directory') {
-            steps {
-                sh 'pwd && ls -l'
-            }
-        }
         stage('Build') {
             steps {
                 script {
-                    sh './gradlew build -x test'
+                    dir('backend/book-service') {
+                        sh './gradlew build -x test'
+                    }
                 }
             }
         }
@@ -25,7 +22,9 @@ pipeline {
         stage('Test') {
             steps {
                 script {
-                    sh './gradlew test'
+                    dir('backend/book-service') {
+                        sh './gradlew test'
+                    }
                 }
             }
         }
