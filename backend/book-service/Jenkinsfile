@@ -12,9 +12,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    dir('backend/book-service') {
-                        sh './gradlew build -x test'
-                    }
+                    sh './gradlew build -x test'
                 }
             }
         }
@@ -22,11 +20,11 @@ pipeline {
         stage('Test') {
             steps {
                 script {
-                    dir('backend/book-service') {
                         sh './gradlew test'
-                    }
+
                 }
             }
         }
     }
+  dir('backend/book-service') {}
 }
