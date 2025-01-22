@@ -1,8 +1,8 @@
-package pl.graphql_intro.service;
+package pl.books.service;
 
 import org.springframework.stereotype.Service;
-import pl.graphql_intro.model.Author;
-import pl.graphql_intro.repository.AuthorRepository;
+import pl.books.model.Author;
+import pl.books.repository.AuthorRepository;
 import reactor.core.publisher.Mono;
 
 @Service

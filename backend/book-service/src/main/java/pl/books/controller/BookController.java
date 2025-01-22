@@ -1,14 +1,14 @@
-package pl.graphql_intro.controller;
+package pl.books.controller;
 
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.graphql.data.method.annotation.SchemaMapping;
 import org.springframework.stereotype.Controller;
-import pl.graphql_intro.model.Author;
-import pl.graphql_intro.model.Book;
-import pl.graphql_intro.service.AuthorService;
-import pl.graphql_intro.service.BookService;
+import pl.books.model.Author;
+import pl.books.model.Book;
+import pl.books.service.AuthorService;
+import pl.books.service.BookService;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 

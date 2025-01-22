@@ -1,4 +1,4 @@
-package pl.graphql_intro.model;
+package pl.books.model;
 
 import jakarta.persistence.Entity;
 import org.springframework.data.annotation.Id;

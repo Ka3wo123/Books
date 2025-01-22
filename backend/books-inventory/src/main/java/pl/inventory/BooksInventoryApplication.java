@@ -1,13 +1,13 @@
-package pl.graphql_intro;
+package pl.inventory;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class GrapghqlIntroApplication {
+public class BooksInventoryApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(GrapghqlIntroApplication.class, args);
+		SpringApplication.run(BooksInventoryApplication.class, args);
 	}
 
 }
