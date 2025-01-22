@@ -1,0 +1,14 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<fingerprint>
+  <timestamp>2025-01-20 19:09:40.430 UTC</timestamp>
+  <md5sum>fdb27b569b30a95078af6c72041fd9e4</md5sum>
+  <fileName>Credential id=jenkins-books-ssh-ed name=jenkins-books-ssh-ed</fileName>
+  <usages/>
+  <facets>
+    <com.cloudbees.plugins.credentials.fingerprints.ItemCredentialsFingerprintFacet plugin="credentials@1405.vb_cda_74a_f8974">
+      <timestamp>1737400180430</timestamp>
+      <itemFullName>books-ssh</itemFullName>
+      <timestamp0>1737400180430</timestamp0>
+    </com.cloudbees.plugins.credentials.fingerprints.ItemCredentialsFingerprintFacet>
+  </facets>
+</fingerprint>

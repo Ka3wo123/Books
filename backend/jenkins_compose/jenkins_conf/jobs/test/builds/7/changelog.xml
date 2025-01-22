@@ -1,0 +1,20 @@
+commit a8f3c178a99a89654fccdd32cba5021674d1be85
+tree 59bb45fd53d00d5a291dad3c80db1c8d29e31d80
+parent 25e2bd2e83d095e5a0e7e67ce0e66868cc64d943
+author Kajetan Nowak <kajtek2n@gmail.com> 2025-01-22 13:05:03 +0100
+committer Kajetan Nowak <kajtek2n@gmail.com> 2025-01-22 13:05:03 +0100
+
+    Update jenkinsfile
+
+
+:100644 100644 d84859bef7925a6e475c7611fc01360d00fb8653 97d3070df5b5ed858994404da21467e156b11a81 M	Jenkinsfile
+commit 25e2bd2e83d095e5a0e7e67ce0e66868cc64d943
+tree d29936d0f1b012f3771e80da70870c0afd834518
+parent f1409591261f0e8ab15c2e7a773e057781702e41
+author Kajetan Nowak <kajtek2n@gmail.com> 2025-01-22 09:59:23 +0100
+committer Kajetan Nowak <kajtek2n@gmail.com> 2025-01-22 09:59:23 +0100
+
+    Add external network
+
+
+:100644 100644 a8c0047cd975d1fc979b3b2f61828c3868b38bda 520b286456dabc255619b49d872bbe98cfb2bbe0 M	docker-compose.yaml

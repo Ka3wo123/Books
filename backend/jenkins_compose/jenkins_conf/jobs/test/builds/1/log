@@ -1,0 +1,7 @@
+Started by user [8mha:////4AtgHqy81qjxYQDifZhZTjLohbRKGe0hrZf3OY/1ItRnAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzeEgZu/dLi1CL9xJTczDwACG0V4sAAAAA=[0mAdministrator
+Running as SYSTEM
+Building in workspace /var/jenkins_home/workspace/test
+[test] $ /bin/sh -xe /tmp/jenkins14706213292279133622.sh
++ echo Hello ${BUILD_ID}
+Hello ${BUILD_ID}
+Finished: SUCCESS

@@ -1,0 +1,10 @@
+commit 0a25213556b9e3af38300e467514acb9609b3208
+tree a8a278ec90eacf0d2d5489995c2106b7448805e4
+parent 3132722b7e0abab32320fd20612964694a8f2016
+author Kajetan Nowak <kajtek2n@gmail.com> 2025-01-22 14:23:01 +0100
+committer Kajetan Nowak <kajtek2n@gmail.com> 2025-01-22 14:23:01 +0100
+
+    Delete one test
+
+
+:100644 100644 10d8f202a6a47a1388bf62ee13925c1e6874051a 62a63ec089a9be0188d4ca402c24f4b3509215d6 M	src/test/java/pl/graphql_intro/BookControllerTest.java
