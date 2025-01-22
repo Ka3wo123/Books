@@ -9,20 +9,21 @@ pipeline {
     }
 
     stages {
-        dir('backend/book-service') {}
-        stage('Build') {
-            steps {
-                script {
-                    sh './gradlew build -x test'
+        dir('backend/book-service') {
+            stage('Build') {
+                steps {
+                    script {
+                        sh './gradlew build -x test'
+                    }
                 }
             }
-        }
 
-        stage('Test') {
-            steps {
-                script {
-                        sh './gradlew test'
+            stage('Test') {
+                steps {
+                    script {
+                            sh './gradlew test'
 
+                    }
                 }
             }
         }
