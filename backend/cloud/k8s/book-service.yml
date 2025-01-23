@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: book-service-app
+  labels:
+    app: book-service-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: book-service-app
+  template:
+    metadata:
+      labels:
+        app: book-service-app
+    spec:
+      containers:
+        - name: book-service-app
+          image: kajtekdocker/book-service:0.0.1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 9090
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: book-service-svc
+spec:
+  selector:
+    app: book-service-app
+  type: ClusterIP
+  ports:    
+    - port: 80
+      targetPort: 9090

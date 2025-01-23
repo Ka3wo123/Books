@@ -5,8 +5,8 @@ plugins {
     id 'org.liquibase.gradle' version '2.2.1'
 }
 
-group = 'pl.graphql-intro'
-version = '0.0.1-SNAPSHOT'
+group = 'pl.books'
+version = '0.0.1'
 
 java {
     toolchain {

@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: inventory-service-app
+  labels:
+    app: inventory-service-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: inventory-service-app
+  template:
+    metadata:
+      labels:
+        app: inventory-service-app
+    spec:
+      containers:
+        - name: inventory-service-app
+          image: kajtekdocker/inventory-service:0.0.1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 9091
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: inventory-service-svc
+spec:
+  selector:
+    app: inventory-service-app
+  type: ClusterIP
+  ports:    
+    - port: 80
+      targetPort: 9091
