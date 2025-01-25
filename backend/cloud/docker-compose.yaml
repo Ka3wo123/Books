@@ -1,8 +1,8 @@
 services:
-  postgres-rx:
+  postgres:
     image: postgres:14.15-alpine3.21
     restart: always
-    container_name: postgres
+    container_name: postgres-books
     ports:
       - 5432:5432
     environment:
@@ -18,7 +18,7 @@ services:
     ports:
       - 8080:8080
       - 50000:50000
-    container_name: jenkins
+    container_name: jenkins-books
     volumes:
       - ./jenkins_compose/jenkins_conf:/var/jenkins_home
       - /var/run/docker.sock:/var/run/docker.sock

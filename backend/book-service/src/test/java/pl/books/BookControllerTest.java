@@ -21,7 +21,7 @@ class BookControllerTest {
   public void getAllBooks() throws Exception {
     mockMvc
         .perform(
-            MockMvcRequestBuilders.get("/books")
+            MockMvcRequestBuilders.get("/api/books")
                 .contentType(MediaType.APPLICATION_JSON)
                     .accept(MediaType.APPLICATION_JSON))
         .andExpect(MockMvcResultMatchers.status().isOk())
