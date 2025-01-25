@@ -16,10 +16,17 @@ spec:
     spec:
       containers:
         - name: inventory-service-app
-          image: kajtekdocker/inventory-service:0.0.1
+          image: kajtekdocker/books-inventory:0.0.2
           imagePullPolicy: Always
           ports:
             - containerPort: 9091
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: "500m"
+            limits:
+              memory: "1Gi"
+              cpu: "1"
 
 ---
 kind: Service

@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.graphql.tester.AutoConfigureGraphQlTester;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.graphql.test.tester.GraphQlTester;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
@@ -16,18 +15,14 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 @AutoConfigureMockMvc
 class BookControllerTest {
 
-  @Autowired private GraphQlTester tester;
-
   @Autowired private MockMvc mockMvc;
 
   @Test
   public void getAllBooks() throws Exception {
-    String query = "{ books {id name pageCount }";
     mockMvc
         .perform(
-            MockMvcRequestBuilders.post("/graphql")
+            MockMvcRequestBuilders.get("/books")
                 .contentType(MediaType.APPLICATION_JSON)
-                    .content("{\"query\": \"" + query + "\"}")
                     .accept(MediaType.APPLICATION_JSON))
         .andExpect(MockMvcResultMatchers.status().isOk())
         .andReturn();

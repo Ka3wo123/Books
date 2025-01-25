@@ -1,13 +1,13 @@
 package pl.books.controller;
 
-import org.springframework.graphql.data.method.annotation.Argument;
-import org.springframework.graphql.data.method.annotation.MutationMapping;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 import pl.books.model.Author;
 import pl.books.service.AuthorService;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-@Controller
+@RestController
+@RequestMapping("/api/authors")
 public class AuthorController {
   private final AuthorService authorService;
 
@@ -15,8 +15,13 @@ public class AuthorController {
     this.authorService = authorService;
   }
 
-  @MutationMapping
-  public Mono<Author> saveAuthor(@Argument Author author) {
-    return authorService.save(author);
+  @GetMapping
+  public Flux<Author> getAuthors() {
+    return authorService.getAuthors();
+  }
+
+  @GetMapping("/{id}")
+  public Mono<Author> getAuthorById(@PathVariable("id") Integer id) {
+    return authorService.getAuthorById(id);
   }
 }

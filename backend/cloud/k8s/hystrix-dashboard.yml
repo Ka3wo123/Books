@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hystrix-dashboard-app
+  labels:
+    app: hystrix-dashboard-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hystrix-dashboard-app
+  template:
+    metadata:
+      labels:
+        app: hystrix-dashboard-app
+    spec:
+      containers:
+        - name: hystrix-dashboard-app
+          image: kajtekdocker/books-hystrix:0.0.2
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 9527
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: "500m"
+            limits:
+              memory: "1Gi"
+              cpu: "1"
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: hystrix-dashboard-svc
+spec:
+  selector:
+    app: hystrix-dashboard-app
+  type: NodePort
+  ports:    
+    - port: 80
+      targetPort: 9527

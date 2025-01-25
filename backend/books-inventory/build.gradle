@@ -1,7 +1,11 @@
+import com.bmuschko.gradle.docker.tasks.image.DockerBuildImage
+import com.bmuschko.gradle.docker.tasks.image.DockerPushImage
+
 plugins {
     id 'java'
     id 'org.springframework.boot' version '3.4.1'
-    id 'io.spring.dependency-management' version '1.1.7'    
+    id 'io.spring.dependency-management' version '1.1.7'
+    id 'com.bmuschko.docker-remote-api' version '9.4.0'
 }
 
 group = 'pl.inventory'
@@ -23,6 +27,11 @@ tasks.named('jar').configure {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter-web:3.4.0'
+    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:4.2.0'
+    implementation 'org.springframework.cloud:spring-cloud-starter-config:4.2.0'
+    implementation 'io.micrometer:micrometer-tracing-bridge-brave:1.3.2'
+    implementation 'io.zipkin.reporter2:zipkin-reporter-brave:3.4.0'
     
     testImplementation 'org.springframework.boot:spring-boot-starter-test:3.4.0'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher:1.11.0-M2'
@@ -30,4 +39,22 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+docker {
+    registryCredentials {
+        url = 'https://index.docker.io/v1/'
+//        username = 'kajtekdocker'
+//        password = 'your-dockerhub-password'
+    }
+}
+
+tasks.register('buildDockerImage', DockerBuildImage) {
+    inputDir.set(file("."))
+    images.add("kajtekdocker/books-inventory:${version}")
+}
+
+tasks.register('pushDockerImage', DockerPushImage) {
+    dependsOn("buildDockerImage")
+    images.add("kajtekdocker/books-inventory:${version}")
 }

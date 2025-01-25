@@ -16,10 +16,17 @@ spec:
     spec:
       containers:
         - name: book-service-app
-          image: kajtekdocker/book-service:0.0.1
+          image: kajtekdocker/book-service:0.0.2
           imagePullPolicy: Always
           ports:
             - containerPort: 9090
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: "500m"
+            limits:
+              memory: "1Gi"
+              cpu: "1"
 
 ---
 kind: Service

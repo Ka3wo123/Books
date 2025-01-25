@@ -1,0 +1,21 @@
+server:
+  port: 9191
+
+spring:
+  graphql:
+    graphiql:
+      enabled: true
+  config:
+    import: configserver:http://localhost:9955/
+  application:
+    name: books-gateway
+
+eureka:
+  instance:
+    preferIpAddress: true
+    hostname: eureka-0
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://eureka-0.eureka.default.svc.cluster:8761/eureka

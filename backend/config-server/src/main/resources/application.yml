@@ -1,0 +1,49 @@
+#spring:
+#  application:
+#    name: config-server
+#  cloud:
+#    config:
+#      server:
+#        git:
+#          uri: https://github.com/Ka3wo123/books-config-server
+#          default-label: master
+#          clone-on-start: true
+#
+#eureka:
+#  instance:
+#    preferIpAddress: true
+#    hostname: eureka-0
+#  client:
+#    registerWithEureka: true
+#    fetchRegistry: true
+#    serviceUrl:
+#      defaultZone: http://eureka-0.eureka.default.svc.cluster.local:8761/eureka
+
+#
+#
+#server:
+#  port: 9955
+
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/Ka3wo123/books-config-server
+          default-label: master
+          clone-on-start: true
+  application:
+    name: service-registry
+
+server:
+  port: 9955
+
+eureka:
+  instance:
+    hostname: localhost.eureka
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
