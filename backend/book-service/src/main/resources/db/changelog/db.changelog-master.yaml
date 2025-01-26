@@ -5,5 +5,8 @@ databaseChangeLog:
       file: src/main/resources/db/changelog/release/db.changelog-01.01.yaml
   - include:
       file: src/main/resources/db/changelog/release/db.changelog-01.02.yaml
+  - include:
+      file: src/main/resources/db/changelog/release/db.changelog-01.03.yaml
+  - include:
+      file: src/main/resources/db/changelog/release/db.changelog-01.04.yaml
 
-            

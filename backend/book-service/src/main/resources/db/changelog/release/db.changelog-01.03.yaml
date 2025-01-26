@@ -1,0 +1,12 @@
+databaseChangeLog:
+  - changeSet:
+      id: 4
+      author: postgres
+      preConditions:
+        - onFail: MARK_RAN
+      changes:
+        - renameColumn:
+            tableName: book
+            oldColumnName: name
+            newColumnName: title
+            columnDataType: VARCHAR(255)

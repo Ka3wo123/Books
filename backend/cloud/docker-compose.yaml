@@ -5,12 +5,14 @@ services:
     container_name: postgres-books
     ports:
       - 5432:5432
+    volumes:
+      - booksdb-v:/var/lib/postgresql/data
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=password
       - POSTGRES_DB=booksdb
     networks:
-      - books
+      - books-n
   jenkins:
     image: jenkins/jenkins:lts
     privileged: true
@@ -23,15 +25,19 @@ services:
       - ./jenkins_compose/jenkins_conf:/var/jenkins_home
       - /var/run/docker.sock:/var/run/docker.sock
     networks:
-      - books
+      - books-n
   zipkin:
     image: openzipkin/zipkin
     ports:
       - 9411:9411
     container_name: zipkin-books
     networks:
-      - books
+      - books-n
 
 networks:
-  books:
+  books-n:
+    external: true
+
+volumes:
+  booksdb-v:
     external: true
