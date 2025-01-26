@@ -24,4 +24,9 @@ public class AuthorController {
   public Mono<Author> getAuthorById(@PathVariable("id") Integer id) {
     return authorService.getAuthorById(id);
   }
+
+  @PostMapping
+  public Mono<Author> save(@RequestBody Author author) {
+    return authorService.save(author);
+  }
 }

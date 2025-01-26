@@ -1,6 +1,6 @@
 spring:
   config:
-    import: http://localhost:9955/
+    import: optional:http://localhost:9955/
   application:
     name: service-registry
   cloud:

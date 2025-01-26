@@ -32,7 +32,26 @@ public class BookQueryResolver implements GraphQLQueryResolver {
 
   public Mono<Author> authorById(Integer id) {
     WebClient webClient = createWebClient("book-service");
-    return webClient.get().uri(String.format("/api/authors/%s", id)).retrieve().bodyToMono(Author.class);
+    return webClient
+        .get()
+        .uri(String.format("/api/authors/%s", id))
+        .retrieve()
+        .bodyToMono(Author.class);
+  }
+
+  public Mono<Author> saveAuthor(Author author) {
+    WebClient webClient = createWebClient("book-service");
+    return webClient
+        .post()
+        .uri("/api/authors")
+        .bodyValue(author)
+        .retrieve()
+        .bodyToMono(Author.class);
+  }
+
+  public Mono<Book> saveBook(Book book) {
+    WebClient webClient = createWebClient("book-service");
+    return webClient.post().uri("/api/books").bodyValue(book).retrieve().bodyToMono(Book.class);
   }
 
   private WebClient createWebClient(String serviceName) {

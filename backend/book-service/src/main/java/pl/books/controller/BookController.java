@@ -1,11 +1,7 @@
 package pl.books.controller;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pl.books.model.Book;
 import pl.books.service.BookService;
 import reactor.core.publisher.Flux;
@@ -39,7 +35,7 @@ public class BookController {
   }
 
   @PostMapping
-  public Mono<Book> saveBook(Book book) {
+  public Mono<Book> saveBook(@RequestBody Book book) {
     return bookService.save(book);
   }
 }

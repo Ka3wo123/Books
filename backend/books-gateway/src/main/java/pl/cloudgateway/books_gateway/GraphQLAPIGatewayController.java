@@ -1,5 +1,7 @@
 package pl.cloudgateway.books_gateway;
 
+import org.springframework.graphql.data.method.annotation.Argument;
+import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.graphql.data.method.annotation.SchemaMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,6 +26,16 @@ public class GraphQLAPIGatewayController {
   @QueryMapping
   public Flux<Author> authors() {
     return resolver.authors();
+  }
+
+  @MutationMapping
+  public Mono<Book> saveBook(@Argument Book book) {
+    return resolver.saveBook(book);
+  }
+
+  @MutationMapping
+  public Mono<Author> saveAuthor(@Argument Author author) {
+    return resolver.saveAuthor(author);
   }
 
   @SchemaMapping

@@ -10,7 +10,7 @@ services:
       - POSTGRES_PASSWORD=password
       - POSTGRES_DB=booksdb
     networks:
-      - jenkins
+      - books
   jenkins:
     image: jenkins/jenkins:lts
     privileged: true
@@ -23,8 +23,15 @@ services:
       - ./jenkins_compose/jenkins_conf:/var/jenkins_home
       - /var/run/docker.sock:/var/run/docker.sock
     networks:
-      - jenkins
+      - books
+  zipkin:
+    image: openzipkin/zipkin
+    ports:
+      - 9411:9411
+    container_name: zipkin-books
+    networks:
+      - books
 
 networks:
-  jenkins:
+  books:
     external: true
